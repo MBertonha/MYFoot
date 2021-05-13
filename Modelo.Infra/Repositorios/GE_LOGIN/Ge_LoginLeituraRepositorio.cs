@@ -36,6 +36,7 @@ namespace Modelo.Infra.Repositorios
             {
                 query = query.Where(e =>
                     (EF.Functions.Like(e.SeqLogin.ToString(), $"%{model.SeqLogin}%") ||
+                    EF.Functions.Like(e.Ativo.ToUpper(), $"%{model.Ativo}%") ||
                     EF.Functions.Like(e.EmailLogin.ToUpper(), $"%{model.EmailLogin}%") ||
                     EF.Functions.Like(e.TipoUsuario.ToString(), $"%{model.TipoUsuario}"))
                 );
@@ -53,6 +54,10 @@ namespace Modelo.Infra.Repositorios
                 if(model.TipoUsuario != null)
                 {
                     query = query.Where(e => model.TipoUsuario.Any((emp) => e.TipoUsuario == emp));
+                }
+                if (!model.Ativo.IsNullOrEmpty())
+                {
+                    query = query.Where(e => EF.Functions.Like(e.Ativo.ToUpper(), $"%{model.Ativo.ToUpper()}%"));
                 }
             }
 

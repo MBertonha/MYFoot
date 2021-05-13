@@ -30,6 +30,10 @@ namespace Modelo.Infra.Mapeamento
             builder.Property(e => e.TipoUsuario)
                 .HasColumnName("tipousuario");
 
+            builder.Property(e => e.Ativo)
+                .HasMaxLength(1)
+                .HasColumnName("ativo");
+
             builder.Ignore(e => e.ResultadoValidacao);
 
             builder.Ignore(e => e.CascadeMode);
