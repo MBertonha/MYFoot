@@ -83,7 +83,7 @@ namespace SemNome
             app.UseTnfAspNetCore(configuration =>
             {
                 //configuration.UseDomainLocalization();
-                configuration.DefaultNameOrConnectionString = "Server=localhost;Port=5432;Database=MGR;User Id=postgres;Password=postgres;";
+                configuration.DefaultNameOrConnectionString = "Server=localhost;Port=5432;Database=testes;User Id=postgres;Password=postgres;";
                 //configuration.EnableDevartPostgreSQLDriver();
                 configuration.DefaultPageSize(10, 999999);
             });

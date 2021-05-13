@@ -27,7 +27,6 @@ namespace SemNome
 
             var host = WebHost.CreateDefaultBuilder(args)
                 .UseStartup<Startup>()
-                .UseKestrel()
                 .UseContentRoot(Directory.GetCurrentDirectory())
                 .UseIISIntegration()
                 .UseConfiguration(hostConfig)
