@@ -6,12 +6,12 @@
 
   <ItemGroup>
     <Folder Include="Validacoes\" />
-    <Folder Include="Servicos\" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="EntityFramework" Version="6.4.4" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+    <PackageReference Include="Tnf.AutoMapper" Version="3.5.3.13004" />
   </ItemGroup>
 
   <ItemGroup>

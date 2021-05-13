@@ -5,14 +5,15 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Contexto\" />
     <Folder Include="Mapping\" />
     <Folder Include="Repositorios\" />
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Devart.Data.PostgreSql" Version="7.20.1866" />
     <PackageReference Include="EntityFramework" Version="6.4.4" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+    <PackageReference Include="Tnf.EntityFrameworkCore" Version="3.5.3.13004" />
   </ItemGroup>
 
 </Project>
