@@ -1,6 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
 using Microsoft.EntityFrameworkCore.ValueGeneration;
+using Modelo.Dominio.Entidades;
+using Modelo.Infra.Mapeamento;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -13,7 +15,7 @@ namespace Modelo.Infra.Contexto
     public class MyFootContexto : TnfDbContext
     {
         #region DbSet
-        //public DbSet<PlayerAccount> PlayerAccount { get; set; }
+        public DbSet<GE_LOGIN> GE_LOGIN { get; set; }
         #endregion
 
         public MyFootContexto(DbContextOptions<MyFootContexto> options, ITnfSession session) : base(options, session)
@@ -23,7 +25,7 @@ namespace Modelo.Infra.Contexto
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            //modelBuilder.ApplyConfiguration(new PlayerAccountMap());
+            modelBuilder.ApplyConfiguration(new GE_LOGIN_MAP());
 
 
             base.OnModelCreating(modelBuilder);

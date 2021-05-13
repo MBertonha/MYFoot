@@ -1,19 +1,18 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Mapping\" />
-    <Folder Include="Repositorios\" />
+    <PackageReference Include="Devart.Data.PostgreSql" Version="7.19.1759" />
+    <PackageReference Include="Tnf.AspNetCore" Version="3.0.0.14603" />
+    <PackageReference Include="Tnf.EntityFrameworkCore" Version="3.0.0.14603" />
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Devart.Data.PostgreSql" Version="7.20.1866" />
-    <PackageReference Include="EntityFramework" Version="6.4.4" />
-    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
-    <PackageReference Include="Tnf.EntityFrameworkCore" Version="3.5.3.13004" />
+    <ProjectReference Include="..\Modelo.Dominio.DTO\Modelo.Dominio.DTO.csproj" />
+    <ProjectReference Include="..\Modelo.Dominio\Modelo.Dominio.csproj" />
   </ItemGroup>
 
 </Project>

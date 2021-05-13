@@ -9,15 +9,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="EntityFramework" Version="6.4.4" />
-    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
-    <PackageReference Include="Tnf.AutoMapper" Version="3.5.3.13004" />
+    <PackageReference Include="Tnf.AutoMapper" Version="3.0.0.14603" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Modelo.Dominio.DTO\Modelo.Dominio.DTO.csproj" />
     <ProjectReference Include="..\Modelo.Dominio\Modelo.Dominio.csproj" />
-    <ProjectReference Include="..\Modelo.Infra.BD\Modelo.Infra.BD.csproj" />
     <ProjectReference Include="..\Modelo.Infra\Modelo.Infra.csproj" />
   </ItemGroup>
 

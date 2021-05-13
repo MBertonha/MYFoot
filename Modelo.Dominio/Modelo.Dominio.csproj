@@ -5,17 +5,19 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="EntityFramework" Version="6.4.4" />
-    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+    <PackageReference Include="FluentValidation" Version="9.2.2" />
+    <PackageReference Include="FluentValidation.AspNetCore" Version="8.6.2" />
+    <PackageReference Include="Tnf.AspNetCore" Version="3.0.0.14603" />
+    <PackageReference Include="Tnf.Domain" Version="3.0.0.14603" />
+    <PackageReference Include="Tnf.Repositories" Version="3.0.0.14603" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Modelo.Infra.BD\Modelo.Infra.BD.csproj" />
-    <ProjectReference Include="..\Modelo.Infra\Modelo.Infra.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Entidades\" />
+    <Folder Include="Entidades\GE_LOGIN\Validacoes\" />
+    <Folder Include="Localizacao\Origem\" />
+    <Folder Include="Modelos\Enum\" />
+    <Folder Include="Seguranca\" />
+    <Folder Include="Utilitarios\" />
   </ItemGroup>
 
 </Project>

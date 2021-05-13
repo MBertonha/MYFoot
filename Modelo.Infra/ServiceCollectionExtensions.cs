@@ -1,4 +1,7 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
+using Modelo.Dominio.DTO.Interfaces;
+using Modelo.Dominio.Entidades;
+using Modelo.Infra.Repositorios;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -9,8 +12,8 @@ namespace Modelo.Infra
     {
         public static IServiceCollection AddEfCore(this IServiceCollection services)
         {
-            //services.AddTransient<IExemploRepositorio, ExemploRepositorio>();
-            //services.AddTransient<IExemploLeituraRepositorio, ExemploLeituraRepositorio>();
+            services.AddTransient<IGeLoginRepositorio, Ge_LoginRepositorio>();
+            services.AddTransient<IGeLoginLeituraRepositorio, Ge_LoginLeituraRepositorio>();
 
             return services;
         }
