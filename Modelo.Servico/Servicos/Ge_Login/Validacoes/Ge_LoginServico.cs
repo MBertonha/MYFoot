@@ -3,6 +3,7 @@ using Modelo.Dominio.DTO.Interfaces;
 using Modelo.Dominio.Entidades;
 using Modelo.Dominio.Modelos.Dtos;
 using Modelo.Servico.Modelos;
+using Modelo.Servico.Utilitarios;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -32,9 +33,26 @@ namespace Modelo.Servico.Servicos
             _LeituraRepositorio = leituraRepositorio;
         }
 
-        public Task<AdicionarGE_LoginDTO> Adicionar(AdicionarGE_LoginDTO exemplo)
+        public async Task<AdicionarGE_LoginDTO> Adicionar(AdicionarGE_LoginDTO exemplo)
         {
-            throw new NotImplementedException();
+            if (!ValidateDto<AdicionarGE_LoginDTO>(exemplo))return null;
+
+            exemplo.Senha = Criptografar.CriptografarSenha(exemplo.Senha);
+
+            var novoExemplo = exemplo.MapTo<GE_LOGIN>();
+
+            var existeInconsitencia = await VerificaInconsistencias(novoExemplo);
+
+            if (!existeInconsitencia && EstaValido(novoExemplo))
+            {
+                novoExemplo = await _Repositorio.InsertAsync(novoExemplo);
+                if (await Commit())
+                {
+                    return novoExemplo.MapTo<AdicionarGE_LoginDTO>();
+                }
+            }
+
+            return null;
         }
 
         public Task<AlterarGe_LoginDTO> Atualizar(int id, Ge_LoginDTO exemploAtualizado)
@@ -52,9 +70,9 @@ namespace Modelo.Servico.Servicos
             return await _LeituraRepositorio.BuscarTodos(buscarTodos);
         }
 
-        protected override Task<bool> VerificaInconsistencias(GE_LOGIN obj)
+        protected override async Task<bool> VerificaInconsistencias(GE_LOGIN obj)
         {
-            throw new NotImplementedException();
+            return false;
         }
     }
 }

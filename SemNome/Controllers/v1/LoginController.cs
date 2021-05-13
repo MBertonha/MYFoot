@@ -36,5 +36,17 @@ namespace SemNome.Controllers.v1
             return CreateResponseOnGetAll(await _Servico.BuscarTodos(buscarTodos));
         }
 
+        [HttpPost]
+        //[Authorize("Bearer")]
+        [ProducesResponseType(typeof(Ge_LoginDTO), 201)]
+        [ProducesResponseType(typeof(ErrorResponse), 400)]
+        public async Task<IActionResult> Post([FromBody] AdicionarGE_LoginDTO exemploDto)
+        {
+
+            var exemplo = await _Servico.Adicionar(exemploDto);
+
+            return CreateResponseOnPost(exemplo);
+        }
+
     }
 }
