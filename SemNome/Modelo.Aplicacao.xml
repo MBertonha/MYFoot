@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Modelo.Aplicacao</name>
+    </assembly>
+    <members>
+        <member name="M:SemNome.Controllers.v1.MainController.Delete(System.Int64)">
+            <summary>
+            Deletes a specific TodoItem.
+            </summary>
+            <param name="id"></param>        
+        </member>
+        <member name="M:Modelo.Aplicacao.Controllers.v1.ValuesController.Delete(System.Int64)">
+            <summary>
+            Deletes a specific TodoItem.
+            </summary>
+            <param name="id"></param>        
+        </member>
+    </members>
+</doc>
