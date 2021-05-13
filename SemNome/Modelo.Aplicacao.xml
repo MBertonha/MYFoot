@@ -4,11 +4,5 @@
         <name>Modelo.Aplicacao</name>
     </assembly>
     <members>
-        <member name="M:SemNome.Controllers.v1.MainController.Delete(System.Int64)">
-            <summary>
-            Deletes a specific TodoItem.
-            </summary>
-            <param name="id"></param>        
-        </member>
     </members>
 </doc>

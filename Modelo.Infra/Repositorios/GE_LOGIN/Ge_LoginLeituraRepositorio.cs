@@ -2,6 +2,7 @@
 using Modelo.Dominio.DTO;
 using Modelo.Dominio.DTO.Interfaces;
 using Modelo.Dominio.Entidades;
+using Modelo.Dominio.Modelos.Dtos;
 using Modelo.Infra.Contexto;
 using System;
 using System.Linq;
@@ -24,7 +25,7 @@ namespace Modelo.Infra.Repositorios
             return brinde.MapTo<Ge_LoginDTO>();
         }
 
-        public async Task<IListDto<ListarGe_LoginDTO>> BuscarTodos(BuscarTodosGe_LoginDTO model)
+        public async Task<IListaBaseDto<Ge_LoginDTO>> BuscarTodos(BuscarTodosGe_LoginDTO model)
         {
             var query = Table
                 .OrderByDescending(x => x.SeqLogin)
@@ -55,7 +56,7 @@ namespace Modelo.Infra.Repositorios
                 }
             }
 
-            return await query.RealizarConsultaAsync<GE_LOGIN, ListarGe_LoginDTO>(model);
+            return await query.RealizarConsultaAsync<GE_LOGIN, Ge_LoginDTO>(model);
         }
     }
 }

@@ -1,0 +1,9 @@
+﻿{
+  "culture": "pt-BR",
+  "texts": {
+    "SeqJogadorObrigatorio": "Código do jogador é obrigatório",
+    "NomeObrigatorio": "O nome é obrigatório",
+    "CpfObrigatorio": "O CPF é obrigatório",
+    "StatusObrigatorio": "O status é obrigatório"
+  }
+} 

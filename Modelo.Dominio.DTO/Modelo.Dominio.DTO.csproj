@@ -9,4 +9,8 @@
     <PackageReference Include="Tnf.Repositories" Version="3.0.0.14603" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Modelo.Dominio\Modelo.Dominio.csproj" />
+  </ItemGroup>
+
 </Project>

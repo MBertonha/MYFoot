@@ -14,7 +14,6 @@
 
   <ItemGroup>
     <Folder Include="Entidades\GE_LOGIN\Validacoes\" />
-    <Folder Include="Localizacao\Origem\" />
     <Folder Include="Modelos\Enum\" />
     <Folder Include="Seguranca\" />
     <Folder Include="Utilitarios\" />

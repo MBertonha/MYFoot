@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Modelo.Dominio.Modelos.Dtos;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,7 +10,7 @@ namespace Modelo.Dominio.DTO.Interfaces
 {
     public interface IGeLoginLeituraRepositorio : IRepository
     {
-        Task<IListDto<ListarGe_LoginDTO>> BuscarTodos(BuscarTodosGe_LoginDTO buscarTodos);
+        Task<IListaBaseDto<Ge_LoginDTO>> BuscarTodos(BuscarTodosGe_LoginDTO buscarTodos);
         Task<Ge_LoginDTO> BuscarPorId(int seqLogin);
     }
 }
