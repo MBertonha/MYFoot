@@ -9,7 +9,7 @@ namespace Modelo.Servico.Servicos
     {
         public static void AddServicosConfiguracao(this IServiceCollection services)
         {
-
+            services.AddTransient<IGe_LoginServico, Ge_LoginServico>();
         }
     }
 }

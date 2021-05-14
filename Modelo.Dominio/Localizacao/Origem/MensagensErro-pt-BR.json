@@ -1,0 +1,19 @@
+﻿{
+  "culture": "pt-BR",
+  "texts": {
+    "SeqJogadorObrigatorio": "Código do jogador é obrigatório",
+    "NomeObrigatorio": "O nome é obrigatório",
+    "CpfObrigatorio": "O CPF é obrigatório",
+    "StatusObrigatorio": "O status é obrigatório",
+    "EmailNaoCadastrado": "O email não está cadastrado",
+    "ErroAoCadastrar": "Ocorreu um erro ao tentar cadastrar o usuário",
+    "ErroAoAtualizar": "Ocorreu um erro ao tentar atualizar o usuário",
+    "SenhaIncompativel": "Senha inserida está incorreta",
+    "ErroAoBuscarUsuario": "erro ao tentar buscar usuário",
+    "EmailInvalido": "Formato de email inválido",
+    "StatusInvalido" "Formato do status inválido",
+    "TamanhoEmailInvalido": "Email deve ter no máximo 30 caracteres",
+    "TamanhoSenhaInvalido": "Senha deve ter no minimo 6 caracteres e no máximo 10",
+    "SenhaFraca": "Senha inserida muito fraca"
+  }
+} 
