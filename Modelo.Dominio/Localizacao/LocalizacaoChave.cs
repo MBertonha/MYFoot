@@ -9,6 +9,9 @@ namespace Modelo.Dominio.Localizacao
         public enum MensagensErro
         {
             MensagensErro,
+            ErroAoCadastrar,
+            EmailNaoCadastrado,
+            ErroAoAtualizar,
         }
     }
 }

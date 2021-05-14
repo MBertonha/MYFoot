@@ -15,12 +15,14 @@ namespace Modelo.Servico.AutoMapper
             CreateMap<GE_LOGIN, Ge_LoginDTO>();
             CreateMap<GE_LOGIN, AdicionarGE_LoginDTO>();
             CreateMap<GE_LOGIN, BuscarTodosGe_LoginDTO>();
+            CreateMap<GE_LOGIN, AlterarGe_LoginDTO>();
             #endregion
 
             #region Dto para Domínio
             CreateMap<Ge_LoginDTO, GE_LOGIN>();
             CreateMap<BuscarTodosGe_LoginDTO, GE_LOGIN>();
             CreateMap<AdicionarGE_LoginDTO, GE_LOGIN>();
+            CreateMap<AlterarGe_LoginDTO, GE_LOGIN>();
             #endregion
 
         }

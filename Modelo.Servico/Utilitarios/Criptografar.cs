@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Security.Cryptography;
 using System.Text;
+using Tnf.Notifications;
 
 namespace Modelo.Servico.Utilitarios
 {

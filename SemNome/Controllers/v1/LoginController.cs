@@ -48,5 +48,17 @@ namespace SemNome.Controllers.v1
             return CreateResponseOnPost(exemplo);
         }
 
+        [HttpPut("{email}")]
+        //[Authorize("Bearer")]
+        [ProducesResponseType(typeof(Ge_LoginDTO), 200)]
+        [ProducesResponseType(typeof(ErrorResponse), 400)]
+        public async Task<IActionResult> Atualizar([FromRoute] string email, [FromBody] Ge_LoginDTO exemploDto)
+        {
+
+            var exemplo = await _Servico.Atualizar(email, exemploDto);
+
+            return CreateResponseOnPut(exemplo);
+        }
+
     }
 }

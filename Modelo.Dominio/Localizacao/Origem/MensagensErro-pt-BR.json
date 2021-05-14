@@ -4,6 +4,10 @@
     "SeqJogadorObrigatorio": "Código do jogador é obrigatório",
     "NomeObrigatorio": "O nome é obrigatório",
     "CpfObrigatorio": "O CPF é obrigatório",
-    "StatusObrigatorio": "O status é obrigatório"
+    "StatusObrigatorio": "O status é obrigatório",
+    "EmailNaoCadastrado": "O email não está cadastrado",
+    "ErroAoCadastrar": "Ocorreu um erro ao tentar cadastrar o usuário",
+    "ErroAoAtualizar": "Ocorreu um erro ao tentar atualizar o usuário",
+    "MensagensErro":  "Ocorreu um erro, contate o administrador"
   }
 } 

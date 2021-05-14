@@ -11,6 +11,6 @@ namespace Modelo.Dominio.DTO.Interfaces
     public interface IGeLoginLeituraRepositorio : IRepository
     {
         Task<IListaBaseDto<Ge_LoginDTO>> BuscarTodos(BuscarTodosGe_LoginDTO buscarTodos);
-        Task<Ge_LoginDTO> BuscarPorId(int seqLogin);
+        Task<Ge_LoginDTO> BuscarPorEmail(string email);
     }
 }

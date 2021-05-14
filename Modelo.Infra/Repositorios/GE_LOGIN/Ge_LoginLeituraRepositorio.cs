@@ -18,9 +18,9 @@ namespace Modelo.Infra.Repositorios
         public Ge_LoginLeituraRepositorio(IDbContextProvider<MyFootContexto> dbContextProvider) : base(dbContextProvider)
         {
         }
-        public async Task<Ge_LoginDTO> BuscarPorId(int seqLogin)
+        public async Task<Ge_LoginDTO> BuscarPorEmail(string email)
         {
-            var brinde = await GetAll((e) => e.SeqLogin == seqLogin)
+            var brinde = await GetAll((e) => e.EmailLogin == email)
                 .FirstOrDefaultAsync();
             return brinde.MapTo<Ge_LoginDTO>();
         }
