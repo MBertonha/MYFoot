@@ -12,6 +12,8 @@ namespace Modelo.Dominio.Localizacao
             ErroAoCadastrar,
             EmailNaoCadastrado,
             ErroAoAtualizar,
+            SenhaIncompativel,
+            ErroAoBuscarUsuario,
         }
     }
 }

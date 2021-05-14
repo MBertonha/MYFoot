@@ -65,17 +65,24 @@ namespace Modelo.Servico.Servicos
            
         }
 
-        public async Task<AlterarGe_LoginDTO> Atualizar(string email, Ge_LoginDTO model)
+        public async Task<AlterarGe_LoginDTO> Atualizar(string email, string senha,  Ge_LoginDTO model)
         {
             try
             {
                 if (!ValidateDto(model)) return null;
 
                 var obj = await _LeituraRepositorio.BuscarPorEmail(email);
+                var senhaDescrp = Criptografar.DescriptografarSenha(senha);
 
                 if (obj == null)
                 {
                     Notificacao.AdicionarNotificacao(_controleNotificacao, LocalizacaoCaminho.EmailNaoCadastrado);
+                    return null;
+                }
+
+                if (senhaDescrp != obj.Senha)
+                {
+                    Notificacao.AdicionarNotificacao(_controleNotificacao, LocalizacaoCaminho.SenhaIncompativel);
                     return null;
                 }
 
@@ -116,6 +123,51 @@ namespace Modelo.Servico.Servicos
         public async Task<IListaBaseDto<Ge_LoginDTO>> BuscarTodos(BuscarTodosGe_LoginDTO buscarTodos)
         {
             return await _LeituraRepositorio.BuscarTodos(buscarTodos);
+        }
+
+        public async Task<BuscarUmGe_LoginDTO> BuscarUmUsuario(string email, string senha)
+        {
+            try
+            {
+
+                var obj = await _LeituraRepositorio.BuscarPorEmail(email);
+                var senhaDescrp = Criptografar.DescriptografarSenha(senha);
+                
+
+                if (obj == null)
+                {
+                    Notificacao.AdicionarNotificacao(_controleNotificacao, LocalizacaoCaminho.EmailNaoCadastrado);
+                    return null;
+                }
+
+                if (senhaDescrp != obj.Senha)
+                {
+                    Notificacao.AdicionarNotificacao(_controleNotificacao, LocalizacaoCaminho.SenhaIncompativel);
+                    return null;
+                }
+
+                var habilitatoAux = true;
+                if (obj.Ativo == "N")
+                {
+                    habilitatoAux = false;
+                }
+
+                var novoExemplo = new BuscarUmGe_LoginDTO()
+                {
+                    SeqLogin = obj.SeqLogin,
+                    EmailLogin = obj.EmailLogin,
+                    TipoUsuario = obj.TipoUsuario,
+                    Habilitado = true
+                };
+
+                return novoExemplo;
+
+            }
+            catch(Exception ex)
+            {
+                Notificacao.AdicionarNotificacao(_controleNotificacao, LocalizacaoCaminho.ErroAoBuscarUsuario);
+                return null;
+            }
         }
 
         protected override async Task<bool> VerificaInconsistencias(GE_LOGIN obj)

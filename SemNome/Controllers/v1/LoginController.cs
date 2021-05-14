@@ -27,6 +27,7 @@ namespace SemNome.Controllers.v1
             _Servico = servico;
         }
 
+        //Traz todos os usuários
         [HttpGet]
         //[Authorize("Bearer")]
         [ProducesResponseType(typeof(IListaBaseDto<Ge_LoginDTO>), 200)]
@@ -36,6 +37,19 @@ namespace SemNome.Controllers.v1
             return CreateResponseOnGetAll(await _Servico.BuscarTodos(buscarTodos));
         }
 
+        //Retorna um unico usuário pelo email e senha
+        [HttpGet("usuario")]
+        //[Authorize("Bearer")]
+        [ProducesResponseType(typeof(BuscarUmGe_LoginDTO), 200)]
+        [ProducesResponseType(typeof(ErrorResponse), 400)]
+        public async Task<IActionResult> BuscarUsuario(string email, string senha)
+        {
+            var retorno = await _Servico.BuscarUmUsuario(email, senha);
+
+            return CreateResponseOnGet(retorno);
+        }
+
+        //Insere novo usuário
         [HttpPost]
         //[Authorize("Bearer")]
         [ProducesResponseType(typeof(Ge_LoginDTO), 201)]
@@ -48,14 +62,15 @@ namespace SemNome.Controllers.v1
             return CreateResponseOnPost(exemplo);
         }
 
-        [HttpPut("{email}")]
+        //Altera uum usuário 
+        [HttpPut]
         //[Authorize("Bearer")]
         [ProducesResponseType(typeof(Ge_LoginDTO), 200)]
         [ProducesResponseType(typeof(ErrorResponse), 400)]
-        public async Task<IActionResult> Atualizar([FromRoute] string email, [FromBody] Ge_LoginDTO exemploDto)
+        public async Task<IActionResult> Atualizar(string email, string senha, [FromBody] Ge_LoginDTO exemploDto)
         {
 
-            var exemplo = await _Servico.Atualizar(email, exemploDto);
+            var exemplo = await _Servico.Atualizar(email, senha, exemploDto);
 
             return CreateResponseOnPut(exemplo);
         }

@@ -8,6 +8,8 @@
     "EmailNaoCadastrado": "O email não está cadastrado",
     "ErroAoCadastrar": "Ocorreu um erro ao tentar cadastrar o usuário",
     "ErroAoAtualizar": "Ocorreu um erro ao tentar atualizar o usuário",
-    "MensagensErro":  "Ocorreu um erro, contate o administrador"
+    "MensagensErro": "Ocorreu um erro, contate o administrador",
+    "SenhaIncompativel": "Senha inserida está incorreta",
+    "ErroAoBuscarUsuario":  "erro ao tentar buscar usuário"
   }
 } 
