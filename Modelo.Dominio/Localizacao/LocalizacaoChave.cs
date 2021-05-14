@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Modelo.Dominio.Localizacao
 {
-    public static class LocalizacaoChave
+    public static class LocalizacaoChaves
     {
         public enum MensagensErro
         {
@@ -14,6 +14,11 @@ namespace Modelo.Dominio.Localizacao
             ErroAoAtualizar,
             SenhaIncompativel,
             ErroAoBuscarUsuario,
+            EmailInvalido,
+            StatusInvalido,
+            TamanhoEmailInvalido,
+            TamanhoSenhaInvalido,
+            SenhaFraca,
         }
     }
 }

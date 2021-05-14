@@ -1,7 +1,5 @@
 ﻿using Modelo.Dominio.Localizacao;
 using System;
-using System.Collections.Generic;
-using System.Text;
 using Tnf.Notifications;
 
 namespace Modelo.Servico.Utilitarios
@@ -14,8 +12,8 @@ namespace Modelo.Servico.Utilitarios
                 controleNotificacao.DefaultBuilder
                     .WithCode("400")
                     .WithBadRequestStatus()
-                    .WithMessage(LocalizacaoCaminho.MensagensErro, (LocalizacaoChave.MensagensErro)Enum.Parse(typeof(LocalizacaoChave.MensagensErro), identificadorNotificacao))
-                    .WithDetailedMessage(LocalizacaoCaminho.MensagensErro, (LocalizacaoChave.MensagensErro)Enum.Parse(typeof(LocalizacaoChave.MensagensErro), identificadorNotificacao))
+                    .WithMessage(LocalizacaoCaminho.MensagensErro, (LocalizacaoChaves.MensagensErro)Enum.Parse(typeof(LocalizacaoChaves.MensagensErro), identificadorNotificacao))
+                    .WithDetailedMessage(LocalizacaoCaminho.MensagensErro, (LocalizacaoChaves.MensagensErro)Enum.Parse(typeof(LocalizacaoChaves.MensagensErro), identificadorNotificacao))
                     .AsError()
                     .Build());
         }

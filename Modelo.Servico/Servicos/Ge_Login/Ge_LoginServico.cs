@@ -59,7 +59,7 @@ namespace Modelo.Servico.Servicos
             }
             catch (Exception ex)
             {
-                Notificacao.AdicionarNotificacao(_controleNotificacao, LocalizacaoCaminho.ErroAoCadastrar);
+                _controleNotificacao.RaiseError(LocalizacaoCaminho.MensagensErro, LocalizacaoChaves.MensagensErro.ErroAoCadastrar);
                 return null;
             }
            
@@ -76,13 +76,13 @@ namespace Modelo.Servico.Servicos
 
                 if (obj == null)
                 {
-                    Notificacao.AdicionarNotificacao(_controleNotificacao, LocalizacaoCaminho.EmailNaoCadastrado);
+                    _controleNotificacao.RaiseError(LocalizacaoCaminho.MensagensErro, LocalizacaoChaves.MensagensErro.EmailNaoCadastrado);
                     return null;
                 }
 
                 if (senhaDescrp != obj.Senha)
                 {
-                    Notificacao.AdicionarNotificacao(_controleNotificacao, LocalizacaoCaminho.SenhaIncompativel);
+                    _controleNotificacao.RaiseError(LocalizacaoCaminho.MensagensErro, LocalizacaoChaves.MensagensErro.SenhaIncompativel);
                     return null;
                 }
 
@@ -114,7 +114,7 @@ namespace Modelo.Servico.Servicos
             }
             catch (Exception ex)
             {
-                Notificacao.AdicionarNotificacao(_controleNotificacao, LocalizacaoCaminho.ErroAoAtualizar);
+                _controleNotificacao.RaiseError(LocalizacaoCaminho.MensagensErro, LocalizacaoChaves.MensagensErro.ErroAoAtualizar);
                 return null;
             }
         }
@@ -136,13 +136,13 @@ namespace Modelo.Servico.Servicos
 
                 if (obj == null)
                 {
-                    Notificacao.AdicionarNotificacao(_controleNotificacao, LocalizacaoCaminho.EmailNaoCadastrado);
+                    _controleNotificacao.RaiseError(LocalizacaoCaminho.MensagensErro, LocalizacaoChaves.MensagensErro.EmailNaoCadastrado);
                     return null;
                 }
 
                 if (senhaDescrp != obj.Senha)
                 {
-                    Notificacao.AdicionarNotificacao(_controleNotificacao, LocalizacaoCaminho.SenhaIncompativel);
+                    _controleNotificacao.RaiseError(LocalizacaoCaminho.MensagensErro, LocalizacaoChaves.MensagensErro.SenhaIncompativel);
                     return null;
                 }
 
@@ -165,14 +165,20 @@ namespace Modelo.Servico.Servicos
             }
             catch(Exception ex)
             {
-                Notificacao.AdicionarNotificacao(_controleNotificacao, LocalizacaoCaminho.ErroAoBuscarUsuario);
+                _controleNotificacao.RaiseError(LocalizacaoCaminho.MensagensErro, LocalizacaoChaves.MensagensErro.ErroAoBuscarUsuario);
                 return null;
             }
         }
 
         protected override async Task<bool> VerificaInconsistencias(GE_LOGIN obj)
         {
-            return false;
+            ValidacaoGeLogin _validacao = new ValidacaoGeLogin(_controleNotificacao);
+
+            var email = _validacao.ValidaEmail(obj.EmailLogin);
+            var senha = _validacao.ValidaSenha(obj.Senha);
+            var status = _validacao.ValidaStatus(obj.Ativo);
+
+            return email || senha || status;
         }
     }
 }

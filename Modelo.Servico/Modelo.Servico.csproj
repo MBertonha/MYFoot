@@ -5,7 +5,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Servicos\Ge_Login\Validacoes\" />
     <Folder Include="Validacoes\" />
   </ItemGroup>
 
