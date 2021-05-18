@@ -31,7 +31,7 @@ namespace Modelo.Servico.Modelos
         protected virtual bool EstaValido(Entidade<T> obj)
         {
             if (obj.EstaValido()) return true;
-            var teste = null;
+
             NotificarErros(obj);
 
             return false;
