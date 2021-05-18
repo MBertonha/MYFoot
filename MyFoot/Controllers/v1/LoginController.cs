@@ -45,8 +45,14 @@ namespace MyFoot.Controllers.v1
         public async Task<IActionResult> BuscarUsuario(string email, string senha)
         {
             var retorno = await _Servico.BuscarUmUsuario(email, senha);
-
-            return CreateResponseOnGet(retorno);
+            if (retorno == null)
+            {
+                return BadRequest("Erro ao buscar login");
+            }
+            else
+            {
+                return CreateResponseOnGet(retorno);
+            }  
         }
 
         //Insere novo usuário
@@ -58,8 +64,14 @@ namespace MyFoot.Controllers.v1
         {
 
             var exemplo = await _Servico.Adicionar(exemploDto);
-
-            return CreateResponseOnPost(exemplo);
+            if(exemplo == null)
+            {
+                return BadRequest("Erro ao inserir login");
+            }
+            else
+            {
+                return CreateResponseOnPost(exemplo);
+            }       
         }
 
         //Altera uum usuário 
@@ -71,8 +83,14 @@ namespace MyFoot.Controllers.v1
         {
 
             var exemplo = await _Servico.Atualizar(email, senha, exemploDto);
-
-            return CreateResponseOnPut(exemplo);
+            if (exemplo == null)
+            {
+                return BadRequest("Erro ao atualizar login");
+            }
+            else
+            {
+                return CreateResponseOnPut(exemplo);
+            }
         }
 
     }

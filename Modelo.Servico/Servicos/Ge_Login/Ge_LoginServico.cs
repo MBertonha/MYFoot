@@ -60,7 +60,7 @@ namespace Modelo.Servico.Servicos
             catch (Exception ex)
             {
                 RegistraLog.Log(ex.Message.ToString());
-                _controleNotificacao.RaiseError(LocalizacaoCaminho.MensagensErro, LocalizacaoChaves.MensagensErro.ErroAoCadastrar);
+                //_controleNotificacao.RaiseError(LocalizacaoCaminho.MensagensErro, LocalizacaoChaves.MensagensErro.ErroAoCadastrar);
                 return null;
             }
            
@@ -78,13 +78,13 @@ namespace Modelo.Servico.Servicos
                 if (obj == null)
                 {
                     RegistraLog.Log("Email não encontrado");
-                    _controleNotificacao.RaiseError(LocalizacaoCaminho.MensagensErro, LocalizacaoChaves.MensagensErro.EmailNaoCadastrado);
+                    //_controleNotificacao.RaiseError(LocalizacaoCaminho.MensagensErro, LocalizacaoChaves.MensagensErro.EmailNaoCadastrado);
                     return null;
                 }
 
                 if (senhaDescrp != obj.Senha)
                 {
-                    _controleNotificacao.RaiseError(LocalizacaoCaminho.MensagensErro, LocalizacaoChaves.MensagensErro.SenhaIncompativel);
+                    //_controleNotificacao.RaiseError(LocalizacaoCaminho.MensagensErro, LocalizacaoChaves.MensagensErro.SenhaIncompativel);
                     return null;
                 }
 
@@ -117,7 +117,7 @@ namespace Modelo.Servico.Servicos
             catch (Exception ex)
             {
                 RegistraLog.Log(ex.Message.ToString());
-                _controleNotificacao.RaiseError(LocalizacaoCaminho.MensagensErro, LocalizacaoChaves.MensagensErro.ErroAoAtualizar);
+                //_controleNotificacao.RaiseError(LocalizacaoCaminho.MensagensErro, LocalizacaoChaves.MensagensErro.ErroAoAtualizar);
                 return null;
             }
         }
@@ -146,13 +146,13 @@ namespace Modelo.Servico.Servicos
 
                 if (obj == null)
                 {
-                    _controleNotificacao.RaiseError(LocalizacaoCaminho.MensagensErro, LocalizacaoChaves.MensagensErro.EmailNaoCadastrado);
+                    //_controleNotificacao.RaiseError(LocalizacaoCaminho.MensagensErro, LocalizacaoChaves.MensagensErro.EmailNaoCadastrado);
                     return null;
                 }
 
                 if (senhaDescrp != obj.Senha)
                 {
-                    _controleNotificacao.RaiseError(LocalizacaoCaminho.MensagensErro, LocalizacaoChaves.MensagensErro.SenhaIncompativel);
+                    //_controleNotificacao.RaiseError(LocalizacaoCaminho.MensagensErro, LocalizacaoChaves.MensagensErro.SenhaIncompativel);
                     return null;
                 }
 
@@ -176,7 +176,7 @@ namespace Modelo.Servico.Servicos
             catch(Exception ex)
             {
                 RegistraLog.Log(ex.Message.ToString());
-                _controleNotificacao.RaiseError(LocalizacaoCaminho.MensagensErro, LocalizacaoChaves.MensagensErro.ErroAoBuscarUsuario);
+                //_controleNotificacao.RaiseError(LocalizacaoCaminho.MensagensErro, LocalizacaoChaves.MensagensErro.ErroAoBuscarUsuario);
                 return null;
             }
         }
