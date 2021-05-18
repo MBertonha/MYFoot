@@ -50,13 +50,13 @@ namespace Modelo.Servico.Servicos
             ValidarSenha _validarSenha = new ValidarSenha();
 
             var pontosSenha = _validarSenha.geraPontosSenha(senha);
-            if (pontosSenha < 60)
+            if (pontosSenha < 40)
             {
                 _controleNotificacao.RaiseError(LocalizacaoCaminho.MensagensErro, LocalizacaoChaves.MensagensErro.SenhaFraca);
                 return true;
             }
 
-            if (senha.Length > 10 && senha.Length < 6)
+            if (senha.Length > 10 || senha.Length < 6)
             {
                 _controleNotificacao.RaiseError(LocalizacaoCaminho.MensagensErro, LocalizacaoChaves.MensagensErro.TamanhoSenhaInvalido);
                 return true;

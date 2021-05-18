@@ -40,11 +40,11 @@ namespace Modelo.Servico.Servicos
             {
                 if (!ValidateDto<AdicionarGE_LoginDTO>(exemplo)) return null;
 
+                var novoObj = exemplo.MapTo<GE_LOGIN>();
+
+                var existeInconsitencia = await VerificaInconsistencias(novoObj);
                 exemplo.Senha = Criptografar.CriptografarSenha(exemplo.Senha);
-
                 var novoExemplo = exemplo.MapTo<GE_LOGIN>();
-
-                var existeInconsitencia = await VerificaInconsistencias(novoExemplo);
 
                 if (!existeInconsitencia && EstaValido(novoExemplo))
                 {
