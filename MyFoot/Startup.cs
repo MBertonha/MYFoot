@@ -6,12 +6,12 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using Tnf.Configuration;
-using Modelo.Aplicacao.Configurações;
 using Modelo.Infra.BD;
 using Modelo.Servico.Servicos;
 using Modelo.Servico.AutoMapper;
+using Modelo.Aplicacao.ConfiguraÃ§Ãµes;
 
-namespace SemNome
+namespace MyFoot
 {
     public class Startup
     {

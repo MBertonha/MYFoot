@@ -17,7 +17,7 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
-    "SemNome": {
+    "MyFoot": {
       "commandName": "Project",
       "launchBrowser": true,
       "launchUrl": "swagger",

@@ -10,7 +10,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Tnf.AspNetCore.Mvc.Response;
 
-namespace SemNome.Controllers.v1
+namespace MyFoot.Controllers.v1
 {
     [Route("api/v{version:apiVersion}/[controller]")]
     [ApiVersion("1")]
