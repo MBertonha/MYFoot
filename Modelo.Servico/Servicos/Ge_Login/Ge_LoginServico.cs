@@ -59,6 +59,7 @@ namespace Modelo.Servico.Servicos
             }
             catch (Exception ex)
             {
+                RegistraLog.Log(ex.Message.ToString());
                 _controleNotificacao.RaiseError(LocalizacaoCaminho.MensagensErro, LocalizacaoChaves.MensagensErro.ErroAoCadastrar);
                 return null;
             }
