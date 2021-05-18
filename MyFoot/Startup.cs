@@ -10,6 +10,7 @@ using Modelo.Infra.BD;
 using Modelo.Servico.Servicos;
 using Modelo.Servico.AutoMapper;
 using Modelo.Aplicacao.Configurações;
+using Modelo.Dominio.Localizacao;
 
 namespace MyFoot
 {
@@ -53,7 +54,7 @@ namespace MyFoot
             #region TNF
             services.AddAutoMapperTnf();
             services.AddTnfEntityFrameworkCore();
-            //services.AddTnfDomain();
+            services.AddTnfDomain();
             #endregion
 
             #region Swagger
@@ -82,9 +83,9 @@ namespace MyFoot
             #region TNF
             app.UseTnfAspNetCore(configuration =>
             {
-                //configuration.UseDomainLocalization();
+                configuration.UseDomainLocalization();
                 configuration.DefaultNameOrConnectionString = "Server=localhost;Port=5432;Database=testes;User Id=postgres;Password=postgres;";
-                //configuration.EnableDevartPostgreSQLDriver();
+                configuration.EnableDevartPostgreSQLDriver();
                 configuration.DefaultPageSize(10, 999999);
             });
             #endregion
