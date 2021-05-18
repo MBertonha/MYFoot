@@ -76,6 +76,7 @@ namespace Modelo.Servico.Servicos
 
                 if (obj == null)
                 {
+                    RegistraLog.Log("Email não encontrado");
                     _controleNotificacao.RaiseError(LocalizacaoCaminho.MensagensErro, LocalizacaoChaves.MensagensErro.EmailNaoCadastrado);
                     return null;
                 }
@@ -114,6 +115,7 @@ namespace Modelo.Servico.Servicos
             }
             catch (Exception ex)
             {
+                RegistraLog.Log(ex.Message.ToString());
                 _controleNotificacao.RaiseError(LocalizacaoCaminho.MensagensErro, LocalizacaoChaves.MensagensErro.ErroAoAtualizar);
                 return null;
             }
@@ -122,7 +124,14 @@ namespace Modelo.Servico.Servicos
 
         public async Task<IListaBaseDto<Ge_LoginDTO>> BuscarTodos(BuscarTodosGe_LoginDTO buscarTodos)
         {
-            return await _LeituraRepositorio.BuscarTodos(buscarTodos);
+            try
+            {
+                return await _LeituraRepositorio.BuscarTodos(buscarTodos);
+            }catch(Exception ex)
+            {
+                RegistraLog.Log(ex.Message.ToString());
+                return null;
+            }
         }
 
         public async Task<BuscarUmGe_LoginDTO> BuscarUmUsuario(string email, string senha)
@@ -165,6 +174,7 @@ namespace Modelo.Servico.Servicos
             }
             catch(Exception ex)
             {
+                RegistraLog.Log(ex.Message.ToString());
                 _controleNotificacao.RaiseError(LocalizacaoCaminho.MensagensErro, LocalizacaoChaves.MensagensErro.ErroAoBuscarUsuario);
                 return null;
             }
