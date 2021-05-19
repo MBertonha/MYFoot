@@ -16,6 +16,7 @@ namespace Modelo.Infra.Contexto
     {
         #region DbSet
         public DbSet<GE_LOGIN> GE_LOGIN { get; set; }
+        public DbSet<GE_TIME> GE_TIME { get; set; }
         #endregion
 
         public MyFootContexto(DbContextOptions<MyFootContexto> options, ITnfSession session) : base(options, session)
@@ -26,6 +27,7 @@ namespace Modelo.Infra.Contexto
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfiguration(new GE_LOGIN_MAP());
+            modelBuilder.ApplyConfiguration(new GE_TIME_MAP());
 
 
             base.OnModelCreating(modelBuilder);
