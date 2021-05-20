@@ -68,9 +68,55 @@ namespace Modelo.Servico.Servicos
 
         }
 
-        public Task<AlterarGe_TimeDTO> Atualizar(int seqtime, Ge_TimeDTO exemploAtualizado)
+        public async Task<AlterarGe_TimeDTO> Atualizar(int seqtime, Ge_TimeDTO model)
         {
-            throw new NotImplementedException();
+            try
+            {
+                if (!ValidateDto(model)) return null;
+
+                var obj = await _LeituraRepositorio.BuscarPorSeqTime(seqtime);
+
+                if (obj == null)
+                {
+                    RegistraLog.Log("Time não encontrado");
+                    return null;
+                }
+
+                if (model.SeqTime != 0 || model.TipoPlano != 0 || model.DataInclusao.ToString() != "01/01/0001 00:00:00")
+                {
+                    RegistraLog.Log("Nao e possivel alterar seqTime, data de inclusao, tipo do plano");
+                    return null;
+                }
+
+                var novomodelo = new AdicionarGE_TimeDTO()
+                {
+                    SeqTime = obj.SeqTime,
+                    TipoPlano = obj.TipoPlano,
+                    DataInclusao = obj.DataInclusao,
+                    NomeTime = model.NomeTime.IsNullOrEmpty() ? obj.NomeTime : model.NomeTime,
+                    CEP = model.CEP.IsNullOrEmpty() ? obj.CEP : model.CEP,
+                    UF = model.UF.IsNullOrEmpty() ? obj.UF : model.UF,
+                    Ativo = model.Ativo.IsNullOrEmpty() ? obj.Ativo : model.Ativo
+                };
+
+                var novo =  novomodelo.MapTo<GE_TIME>();
+                var existeInconsitencia = await VerificaInconsistencias(novo);
+
+                if (!existeInconsitencia && EstaValido(novo))
+                {
+                    novo = await _Repositorio.UpdateAsync(novo);
+
+                    return novo.MapTo<AlterarGe_TimeDTO>();
+                }
+
+                return null;
+            }
+            catch (Exception ex)
+            {
+                RegistraLog.Log(ex.Message.ToString());
+                //_controleNotificacao.RaiseError(LocalizacaoCaminho.MensagensErro, LocalizacaoChaves.MensagensErro.ErroAoAtualizar);
+                return null;
+            }
         }
 
         public async Task<IListaBaseDto<Ge_TimeDTO>> BuscarTodos(BuscarTodosGe_TimeDTO buscarTodos)

@@ -75,24 +75,24 @@ namespace Modelo.Aplicacao.Controllers.v1
             }
         }
 
-        //Altera um usuário 
-        //[HttpPut]
+        //Altera um time
+        [HttpPut]
         //[Authorize("Bearer")]
-        //[ProducesResponseType(typeof(Ge_TimeDTO), 200)]
-        //[ProducesResponseType(typeof(ErrorResponse), 400)]
-        //public async Task<IActionResult> Atualizar(string email, string senha, [FromBody] Ge_TimeDTO exemploDto)
-        //{
+        [ProducesResponseType(typeof(Ge_TimeDTO), 200)]
+        [ProducesResponseType(typeof(ErrorResponse), 400)]
+        public async Task<IActionResult> Atualizar([FromQuery] int seqTime, [FromBody] Ge_TimeDTO exemploDto)
+        {
 
-        //    var exemplo = await _Servico.Atualizar(email, senha, exemploDto);
-        //    if (exemplo == null)
-        //    {
-        //        return BadRequest("Erro ao atualizar login");
-        //    }
-        //    else
-        //    {
-        //        return CreateResponseOnPut(exemplo);
-        //    }
-        //}
+            var exemplo = await _Servico.Atualizar(seqTime, exemploDto);
+            if (exemplo == null)
+            {
+                return BadRequest("Erro ao alterar o time");
+            }
+            else
+            {
+                return CreateResponseOnPut(exemplo);
+            }
+        }
 
     }
 }
