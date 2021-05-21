@@ -11,6 +11,8 @@ namespace Modelo.Servico.Servicos
         {
             services.AddTransient<IGe_LoginServico, Ge_LoginServico>();
             services.AddTransient<IGe_TimeServico, Ge_TimeServico>();
+            services.AddTransient<IGe_UsuarioServico, Ge_UsuarioServico>();
+
         }
     }
 }

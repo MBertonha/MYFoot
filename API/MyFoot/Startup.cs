@@ -84,7 +84,7 @@ namespace MyFoot
             app.UseTnfAspNetCore(configuration =>
             {
                 configuration.UseDomainLocalization();
-                configuration.DefaultNameOrConnectionString = "Server=localhost;Port=5432;Database=testes;User Id=postgres;Password=postgres;";
+                configuration.DefaultNameOrConnectionString = "Server=tuffi.db.elephantsql.com;Port=5432;Database=vfzlwhcv;User Id=vfzlwhcv;Password=BN2LKPJVkQ7H2e7a1SQ0Hws7TjRCL2ic;";
                 configuration.EnableDevartPostgreSQLDriver();
                 configuration.DefaultPageSize(10, 999999);
             });

@@ -17,7 +17,7 @@ namespace Modelo.Servico.Utilitarios
                 caminhoExe = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
                 string caminhoArquivo = Path.Combine(caminhoExe, strNomeArquivo);
 
-                if (!File.Exists(caminhoArquivo))
+                    if (!File.Exists(caminhoArquivo))
                 {
                     FileStream arquivo = File.Create(caminhoArquivo);
                     arquivo.Close();

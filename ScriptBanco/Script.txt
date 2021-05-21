@@ -67,10 +67,11 @@ CREATE TABLE public.ge_usuario
     email character varying(30) COLLATE pg_catalog."default" NOT NULL, 
     ativo character varying(1) COLLATE pg_catalog."default" NOT NULL DEFAULT 'S'::character varying, 
     "dataInclusao" date NOT NULL, 
-    seq_time integer NOT NULL, seq_login integer NOT NULL, 
-    CONSTRAINT ge_usuario_pkey PRIMARY KEY (seq_usuario) 
-    CONSTRAINT ge_usuario_fkey FOREIGN KEY (seq_time) REFERENCES ge_time(seq_time) 
-    CONSTRAINT ge_usuario_fkey1 FOREIGN KEY (seq_login) REFERENCES ge_login(seq_login)
+    seq_time integer NOT NULL, 
+    seq_login integer NOT NULL, 
+    CONSTRAINT ge_usuario_pkey PRIMARY KEY (seq_usuario), 
+    CONSTRAINT ge_usuario_fkey FOREIGN KEY (seq_time) REFERENCES ge_time(seq_time), 
+    CONSTRAINT ge_usuario_fkey1 FOREIGN KEY (seq_login) REFERENCES ge_login(seq_login),
 );
 
 
