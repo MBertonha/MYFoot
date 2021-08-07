@@ -19,6 +19,7 @@ namespace Modelo.Dominio.Localizacao
             TamanhoEmailInvalido,
             TamanhoSenhaInvalido,
             SenhaFraca,
+            NicknameNaoCadastrado
         }
     }
 }

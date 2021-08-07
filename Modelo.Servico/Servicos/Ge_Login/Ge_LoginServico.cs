@@ -135,40 +135,41 @@ namespace Modelo.Servico.Servicos
             }
         }
 
-        public async Task<BuscarUmGe_LoginDTO> BuscarUmUsuario(string email, string senha)
+        public async Task<ResponseLogin> BuscarUmUsuario(string nickname, string senha)
         {
             try
             {
 
-                var obj = await _LeituraRepositorio.BuscarPorEmail(email);
+                var obj = await _LeituraRepositorio.BuscarPorNickname(nickname);
                 var senhaDescrp = Criptografar.DescriptografarSenha(senha);
-                
+
+                var novoExemplo = new ResponseLogin();
+
 
                 if (obj == null)
                 {
-                    //_controleNotificacao.RaiseError(LocalizacaoCaminho.MensagensErro, LocalizacaoChaves.MensagensErro.EmailNaoCadastrado);
-                    return null;
+                    novoExemplo.Num = 0;
+                    novoExemplo.Valido = "N";
+                    return novoExemplo;
                 }
 
                 if (senhaDescrp != obj.Senha)
                 {
-                    //_controleNotificacao.RaiseError(LocalizacaoCaminho.MensagensErro, LocalizacaoChaves.MensagensErro.SenhaIncompativel);
-                    return null;
+                    novoExemplo.Num = 0;
+                    novoExemplo.Valido = "N";
+                    return novoExemplo;
                 }
 
                 var habilitatoAux = true;
                 if (obj.Ativo == "N")
                 {
-                    habilitatoAux = false;
+                    novoExemplo.Num = 0;
+                    novoExemplo.Valido = "N";
+                    return novoExemplo;
                 }
 
-                var novoExemplo = new BuscarUmGe_LoginDTO()
-                {
-                    SeqLogin = obj.SeqLogin,
-                    EmailLogin = obj.EmailLogin,
-                    TipoUsuario = obj.TipoUsuario,
-                    Habilitado = true
-                };
+                novoExemplo.Num = obj.SeqLogin;
+                novoExemplo.Valido = "S";
 
                 return novoExemplo;
 

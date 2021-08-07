@@ -40,14 +40,14 @@ namespace MyFoot.Controllers.v1
         //Retorna um unico usuário pelo email e senha
         [HttpGet("usuario")]
         //[Authorize("Bearer")]
-        [ProducesResponseType(typeof(BuscarUmGe_LoginDTO), 200)]
+        [ProducesResponseType(typeof(ResponseLogin), 200)]
         [ProducesResponseType(typeof(ErrorResponse), 400)]
-        public async Task<IActionResult> BuscarUsuario(string email, string senha)
+        public async Task<IActionResult> BuscarUsuario(string nickname, string senha)
         {
-            var retorno = await _Servico.BuscarUmUsuario(email, senha);
-            if (retorno == null)
+            var retorno = await _Servico.BuscarUmUsuario(nickname, senha);
+            if(retorno.Valido == "N")
             {
-                return BadRequest("Erro ao buscar login");
+                return BadRequest("Nickname ou senha inválido");
             }
             else
             {

@@ -12,5 +12,7 @@ namespace Modelo.Dominio.DTO.Interfaces
     {
         Task<IListaBaseDto<Ge_LoginDTO>> BuscarTodos(BuscarTodosGe_LoginDTO buscarTodos);
         Task<Ge_LoginDTO> BuscarPorEmail(string email);
+        Task<Ge_LoginDTO> BuscarPorNickname(string nickname);
+
     }
 }

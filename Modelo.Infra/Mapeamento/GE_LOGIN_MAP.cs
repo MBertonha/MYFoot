@@ -27,6 +27,10 @@ namespace Modelo.Infra.Mapeamento
                 .HasMaxLength(100)
                 .HasColumnName("senha");
 
+            builder.Property(e => e.Nickname)
+                .HasMaxLength(10)
+                .HasColumnName("nickname");
+
             builder.Property(e => e.TipoUsuario)
                 .HasColumnName("tipousuario");
 
