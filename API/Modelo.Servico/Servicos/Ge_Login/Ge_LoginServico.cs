@@ -135,9 +135,9 @@ namespace Modelo.Servico.Servicos
             }
         }
 
-        public async Task<BuscarUmGe_LoginDTO> BuscarUmUsuario(string email, string senha)
+        public async Task<ResponseLogin> BuscarUmUsuario(string nickname, string senha)
         {
-            try
+           try
             {
                 String mensagemAux = "";
                 var obj = await _LeituraRepositorio.BuscarPorEmail(email);

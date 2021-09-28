@@ -7,6 +7,7 @@ namespace Modelo.Dominio.Entidades
         #region Variaveis
 
         public int SeqLogin { get; private set; }
+        public string Nickname { get; private set; }
         public string EmailLogin { get; private set; }
         public string Senha { get; private set; }
         public int TipoUsuario { get; private set; }
@@ -16,13 +17,14 @@ namespace Modelo.Dominio.Entidades
 
         public GE_LOGIN(){ }
 
-        public GE_LOGIN(int seqLogin, string emailLogin, string senha, int tipoUsuario, string ativo) 
+        public GE_LOGIN(int seqLogin, string emailLogin, string senha, int tipoUsuario, string ativo, string nickname) 
         {
             SeqLogin = seqLogin;
             EmailLogin = emailLogin ?? "";
             Senha = senha ?? "";
             TipoUsuario = tipoUsuario;
             Ativo = ativo ?? "S";
+            Nickname = nickname;
 
             //Incluir validações
 

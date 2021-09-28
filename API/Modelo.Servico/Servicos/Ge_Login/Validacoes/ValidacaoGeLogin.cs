@@ -21,7 +21,7 @@ namespace Modelo.Servico.Servicos
         {
             if(email.Length > 30)
             {
-                //_controleNotificacao.RaiseError(LocalizacaoCaminho.MensagensErro, LocalizacaoChaves.MensagensErro.TamanhoEmailInvalido);
+                _controleNotificacao.RaiseError(LocalizacaoCaminho.MensagensErro, LocalizacaoChaves.MensagensErro.TamanhoEmailInvalido);
                 return true;
             }
 
@@ -29,7 +29,7 @@ namespace Modelo.Servico.Servicos
 
             if (!rg.IsMatch(email))
             {
-                //_controleNotificacao.RaiseError(LocalizacaoCaminho.MensagensErro, LocalizacaoChaves.MensagensErro.EmailInvalido);
+                _controleNotificacao.RaiseError(LocalizacaoCaminho.MensagensErro, LocalizacaoChaves.MensagensErro.EmailInvalido);
                 return true;
             }
 
@@ -39,7 +39,7 @@ namespace Modelo.Servico.Servicos
         {
             if(status != "S" && status != "N")
             {
-                //_controleNotificacao.RaiseError(LocalizacaoCaminho.MensagensErro, LocalizacaoChaves.MensagensErro.StatusInvalido);
+                _controleNotificacao.RaiseError(LocalizacaoCaminho.MensagensErro, LocalizacaoChaves.MensagensErro.StatusInvalido);
                 return true;
             }
             return false;
@@ -52,13 +52,13 @@ namespace Modelo.Servico.Servicos
             var pontosSenha = _validarSenha.geraPontosSenha(senha);
             if (pontosSenha < 40)
             {
-                //_controleNotificacao.RaiseError(LocalizacaoCaminho.MensagensErro, LocalizacaoChaves.MensagensErro.SenhaFraca);
+                _controleNotificacao.RaiseError(LocalizacaoCaminho.MensagensErro, LocalizacaoChaves.MensagensErro.SenhaFraca);
                 return true;
             }
 
             if (senha.Length > 10 || senha.Length < 6)
             {
-                //_controleNotificacao.RaiseError(LocalizacaoCaminho.MensagensErro, LocalizacaoChaves.MensagensErro.TamanhoSenhaInvalido);
+                _controleNotificacao.RaiseError(LocalizacaoCaminho.MensagensErro, LocalizacaoChaves.MensagensErro.TamanhoSenhaInvalido);
                 return true;
             }
 
