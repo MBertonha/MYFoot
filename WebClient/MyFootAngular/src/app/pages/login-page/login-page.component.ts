@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { PoNotificationService } from '@po-ui/ng-components';
+import { GeralService } from 'src/app/services/geral/geral.service';
 import { LoginService } from 'src/app/services/login-page/login.service';
 import { LoginResponse } from 'src/app/utilitarios/DTO/loginDto';
 import {Md5} from 'ts-md5/dist/md5';
@@ -20,7 +21,8 @@ export class LoginPageComponent implements OnInit {
   constructor(private formBuilder: FormBuilder,
     private poNotification: PoNotificationService,
     private loginService: LoginService,
-    private router: Router) { }
+    private router: Router,
+    private servicoGeral: GeralService) { }
 
   ngOnInit(): void {
 
@@ -45,7 +47,13 @@ export class LoginPageComponent implements OnInit {
         this.formulario.controls["email"].setValue("");
         this.formulario.controls["senha"].setValue("");
       }else{
+        const date = new Date();
         this.poNotification.success("Logado com sucesso");
+
+        this.servicoGeral.dataLogin = date.getDate();
+        this.servicoGeral.seqUsuario = dados.seqLogin; 
+        this.servicoGeral.tipoUsuario = dados.tipoUsuario;
+
         this.router.navigate(['/home']);
       }
 
