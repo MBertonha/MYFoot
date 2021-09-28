@@ -25,13 +25,6 @@ namespace Modelo.Infra.Repositorios
             return brinde.MapTo<Ge_LoginDTO>();
         }
 
-        public async Task<Ge_LoginDTO> BuscarPorNickname(string nickname)
-        {
-            var brinde = await GetAll((e) => e.Nickname == nickname)
-                .FirstOrDefaultAsync();
-            return brinde.MapTo<Ge_LoginDTO>();
-        }
-
         public async Task<IListaBaseDto<Ge_LoginDTO>> BuscarTodos(BuscarTodosGe_LoginDTO model)
         {
             var query = Table
@@ -45,7 +38,6 @@ namespace Modelo.Infra.Repositorios
                     (EF.Functions.Like(e.SeqLogin.ToString(), $"%{model.SeqLogin}%") ||
                     EF.Functions.Like(e.Ativo.ToUpper(), $"%{model.Ativo}%") ||
                     EF.Functions.Like(e.EmailLogin.ToUpper(), $"%{model.EmailLogin}%") ||
-                    EF.Functions.Like(e.Nickname.ToUpper(), $"%{model.Nickname.ToUpper()}%") ||
                     EF.Functions.Like(e.TipoUsuario.ToString(), $"%{model.TipoUsuario}"))
                 );
             }
@@ -66,10 +58,6 @@ namespace Modelo.Infra.Repositorios
                 if (!model.Ativo.IsNullOrEmpty())
                 {
                     query = query.Where(e => EF.Functions.Like(e.Ativo.ToUpper(), $"%{model.Ativo.ToUpper()}%"));
-                }
-                if (!model.Nickname.IsNullOrEmpty())
-                {
-                    query = query.Where(e => EF.Functions.Like(e.Nickname.ToUpper(), $"%{model.Nickname.ToUpper()}%"));
                 }
             }
 

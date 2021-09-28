@@ -14,7 +14,6 @@
     "StatusInvalido" "Formato do status inválido",
     "TamanhoEmailInvalido": "Email deve ter no máximo 30 caracteres",
     "TamanhoSenhaInvalido": "Senha deve ter no minimo 6 caracteres e no máximo 10",
-    "SenhaFraca": "Senha inserida muito fraca",
-    "NicknameNaoCadastrado":  "Nickname não encontrado"
+    "SenhaFraca": "Senha inserida muito fraca"
   }
 } 

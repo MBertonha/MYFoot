@@ -10,7 +10,7 @@ namespace Modelo.Servico.Servicos
     public interface IGe_LoginServico
     {
         Task<IListaBaseDto<Ge_LoginDTO>> BuscarTodos(BuscarTodosGe_LoginDTO buscarTodos);
-        Task<ResponseLogin> BuscarUmUsuario(string nickname, string senha);
+        Task<BuscarUmGe_LoginDTO> BuscarUmUsuario(string email, string senha);
         Task<AdicionarGE_LoginDTO> Adicionar(AdicionarGE_LoginDTO exemplo);
         Task<AlterarGe_LoginDTO> Atualizar(string email, string senha, Ge_LoginDTO exemploAtualizado);
     }

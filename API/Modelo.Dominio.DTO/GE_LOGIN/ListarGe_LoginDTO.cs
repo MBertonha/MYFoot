@@ -12,6 +12,5 @@ namespace Modelo.Dominio.DTO
         public string Senha { get; set; }
         public int TipoUsuario { get; set; }
         public string Ativo { get; set; }
-        public string Nickname { get; set; }
     }
 }

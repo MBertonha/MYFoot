@@ -17,7 +17,6 @@ namespace Modelo.Dominio.Localizacao
         public static string TamanhoEmailInvalido { get; set; } = "TamanhoEmailInvalido";
         public static string TamanhoSenhaInvalido { get; set; } = "TamanhoSenhaInvalido";
         public static string SenhaFraca { get; set; } = "SenhaFraca";
-        public static string NicknameNaoCadastrado { get; set; } = "NicknameNaoCadastrado";
 
     }
 }

@@ -10,7 +10,6 @@ namespace Modelo.Dominio.DTO
         public int SeqLogin { get; set; }
         public string EmailLogin { get; set; }
         public string Senha { get; set; }
-        public string Nickname { get; set; }
         public int TipoUsuario { get; set; }
         public string Ativo { get; set; }
     }

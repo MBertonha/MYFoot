@@ -9,8 +9,8 @@ namespace Modelo.Dominio.DTO
     {
         public int SeqLogin { get; set; }
         public string EmailLogin { get; set; }
-        public string Nickname { get; set; }
         public int TipoUsuario { get; set; }
         public bool Habilitado { get; set; }
+        public string MensagemErro { get; set; }
     }
 }
