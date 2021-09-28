@@ -141,7 +141,7 @@ namespace Modelo.Servico.Servicos
             {
                 String mensagemAux = "";
                 var obj = await _LeituraRepositorio.BuscarPorEmail(email);
-                var senhaDescrp = Criptografar.DescriptografarSenha(senha);
+                //var senhaDescrp = Criptografar.DescriptografarSenha(senha);
                 
 
                 if (obj == null)
@@ -151,7 +151,7 @@ namespace Modelo.Servico.Servicos
                     return null;
                 }
 
-                if (senhaDescrp != obj.Senha)
+                if (senha != obj.Senha)
                 {
                     mensagemAux = "Senha incorreta";
                     //_controleNotificacao.RaiseError(LocalizacaoCaminho.MensagensErro, LocalizacaoChaves.MensagensErro.SenhaIncompativel);
