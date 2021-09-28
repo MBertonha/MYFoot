@@ -1,0 +1,27 @@
+.flex-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .container-box {
+    height: 300px;
+  }
+  
+  .content-box {
+    text-align: center;
+    width: 95%;
+  }
+
+  .esqueciSenha{
+    text-align: center;
+    color: black;
+    font-style: normal;
+    text-decoration: none;
+  }
+
+  .esqueciSenha :hover {
+    color:darkred;
+    font-style:oblique;
+    text-decoration: inherit;
+  }

@@ -1,0 +1,35 @@
+<div class="flex-box container-box">
+    <div class="content-box">
+        <br><br><br><br><br><br><br><br><br><br><br>
+        <h1>Seja bem vindo(a)</h1>
+        <br><br>
+        <po-divider></po-divider>
+        <br><br>
+
+        <form [formGroup]="formulario">
+            <div class="po-row">
+                <a class="po-md-4"></a>
+                <po-login class="po-md-4" name="login" (p-change)="alterar()" p-label="Email" formControlName="email" p-placeholder="Insira seu email"> </po-login>
+                <a class="po-md-4"></a>
+            </div>
+    
+            <div class="po-row">
+                <a class="po-md-4"></a>
+                <po-password
+                class="po-md-4" name="userPassword"
+                p-clean p-label="Senha" formControlName="senha" p-placeholder="Insira sua senha"
+                p-required
+              >
+              </po-password>
+              <a class="po-md-4"></a>
+            </div>
+        </form>
+        
+        <br>
+        <a class="esqueciSenha" routerLink="/recuperacao" >Esqueci minha senha</a>
+        <br><br>
+        <a routerLink="/index">
+            <po-button p-label="Login" p-type="primary"> </po-button>
+        </a>    
+    </div>
+</div>
