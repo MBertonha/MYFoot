@@ -9,7 +9,7 @@
         <form [formGroup]="formulario">
             <div class="po-row">
                 <a class="po-md-4"></a>
-                <po-login class="po-md-4" name="login" (p-change)="alterar()" p-label="Email" formControlName="email" p-placeholder="Insira seu email"> </po-login>
+                <po-login class="po-md-4" name="login" p-label="Email" formControlName="email" p-placeholder="Insira seu email"> </po-login>
                 <a class="po-md-4"></a>
             </div>
     
@@ -28,8 +28,6 @@
         <br>
         <a class="esqueciSenha" routerLink="/recuperacao" >Esqueci minha senha</a>
         <br><br>
-        <a routerLink="/index">
-            <po-button p-label="Login" p-type="primary"> </po-button>
-        </a>    
+        <po-button p-label="Login" (p-click)="logar()" p-type="primary"> </po-button>   
     </div>
 </div>

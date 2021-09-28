@@ -47,7 +47,12 @@ namespace MyFoot.Controllers.v1
             var retorno = await _Servico.BuscarUmUsuario(email, senha);
             if (retorno == null)
             {
-                return BadRequest("Erro ao buscar login");
+                BuscarUmGe_LoginDTO retornoErro = new BuscarUmGe_LoginDTO()
+                {
+                    MensagemErro = "Email e/ou senha inválidos",
+                    Habilitado = false
+                };
+                return CreateResponseOnGet(retornoErro);
             }
             else
             {

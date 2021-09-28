@@ -8,15 +8,22 @@ import { PoModule } from '@po-ui/ng-components';
 import { routing } from './app.routing';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PoTemplatesModule } from '@po-ui/ng-templates';
+import { RecuperacaoSenhaComponent } from './pages/recuperacao-senha/recuperacao-senha.component';
+import { HomeComponent } from './pages/home/home.component';
+import { HttpClientModule } from '@angular/common/http';
+import { LoginService } from './services/login-page/login.service';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginPageComponent
+    LoginPageComponent,
+    HomeComponent,
+    RecuperacaoSenhaComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
     PoModule,
     PoTemplatesModule,
     ReactiveFormsModule,
@@ -26,7 +33,7 @@ import { PoTemplatesModule } from '@po-ui/ng-templates';
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [LoginService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

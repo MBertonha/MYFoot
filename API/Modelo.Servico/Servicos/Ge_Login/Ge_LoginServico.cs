@@ -139,19 +139,21 @@ namespace Modelo.Servico.Servicos
         {
             try
             {
-
+                String mensagemAux = "";
                 var obj = await _LeituraRepositorio.BuscarPorEmail(email);
                 var senhaDescrp = Criptografar.DescriptografarSenha(senha);
                 
 
                 if (obj == null)
                 {
+                    mensagemAux = "Email não cadastrado";
                     //_controleNotificacao.RaiseError(LocalizacaoCaminho.MensagensErro, LocalizacaoChaves.MensagensErro.EmailNaoCadastrado);
                     return null;
                 }
 
                 if (senhaDescrp != obj.Senha)
                 {
+                    mensagemAux = "Senha incorreta";
                     //_controleNotificacao.RaiseError(LocalizacaoCaminho.MensagensErro, LocalizacaoChaves.MensagensErro.SenhaIncompativel);
                     return null;
                 }
@@ -167,7 +169,8 @@ namespace Modelo.Servico.Servicos
                     SeqLogin = obj.SeqLogin,
                     EmailLogin = obj.EmailLogin,
                     TipoUsuario = obj.TipoUsuario,
-                    Habilitado = true
+                    Habilitado = true,
+                    MensagemErro = mensagemAux
                 };
 
                 return novoExemplo;
