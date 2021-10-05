@@ -13,6 +13,7 @@ namespace Modelo.Dominio.DTO
         public string UF { get; set; }
         public int TipoPlano { get; set; }
         public string Ativo { get; set; }
+        public int QtdJogos { get; set; }
         public DateTime DataInclusao { get; set; }
     }
 }

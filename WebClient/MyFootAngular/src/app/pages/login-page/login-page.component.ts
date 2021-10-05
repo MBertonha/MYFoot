@@ -41,7 +41,6 @@ export class LoginPageComponent implements OnInit {
     let senhaCript = md5.appendStr(this.formulario.controls.senha.value).end();
 
     this.loginService.buscarUsuario(emailAux, senhaCript).subscribe(dados => {
-      console.log(dados);
       if(dados.habilitado == false){
         this.poNotification.warning(dados.mensagemErro);
         this.formulario.controls["email"].setValue("");
@@ -54,7 +53,13 @@ export class LoginPageComponent implements OnInit {
         this.servicoGeral.seqUsuario = dados.seqLogin; 
         this.servicoGeral.tipoUsuario = dados.tipoUsuario;
 
-        this.router.navigate(['/home']);
+        if(dados.tipoUsuario == 1 ){
+          this.router.navigate(['/adminIndex']);
+        }else{
+          this.router.navigate(['/home']);
+        }
+
+        
       }
 
     });

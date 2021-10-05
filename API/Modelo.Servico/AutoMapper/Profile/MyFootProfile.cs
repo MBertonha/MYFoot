@@ -25,6 +25,7 @@ namespace Modelo.Servico.AutoMapper
             CreateMap<AdicionarGE_LoginDTO, GE_LOGIN>();
             CreateMap<AlterarGe_LoginDTO, GE_LOGIN>();
             #endregion
+
             // GE time
             #region Domínio para Dto
             CreateMap<GE_TIME, Ge_TimeDTO>();
@@ -41,6 +42,36 @@ namespace Modelo.Servico.AutoMapper
             #region DTO para DTO
             CreateMap<Ge_TimeDTO, BuscarTodosGe_TimeDTO>();
             CreateMap<BuscarTodosGe_TimeDTO, Ge_TimeDTO>();
+            #endregion
+
+            // GE Usuario
+            #region Domínio para Dto
+            CreateMap<GE_USUARIO, Ge_UsuarioDTO>();
+            CreateMap<GE_USUARIO, AdicionarGe_UsuarioDTO>();
+            CreateMap<GE_USUARIO, BuscarTodosGe_UsuarioDTO>();
+            CreateMap<GE_USUARIO, AlterarGe_UsuarioDTO>();
+            #endregion
+
+            #region Dto para Domínio
+            CreateMap<Ge_UsuarioDTO, GE_USUARIO>();
+            CreateMap<BuscarTodosGe_UsuarioDTO, GE_USUARIO>();
+            CreateMap<AdicionarGe_UsuarioDTO, GE_USUARIO>();
+            CreateMap<AlterarGe_UsuarioDTO, GE_USUARIO>();
+            #endregion
+
+            // GE Jogador
+            #region Domínio para Dto
+            CreateMap<GE_JOGADOR, Ge_JogadorDTO>();
+            CreateMap<GE_JOGADOR, AdicionarGe_JogadorDto>();
+            CreateMap<GE_JOGADOR, BuscarTodosGe_JogadorDTO>();
+            CreateMap<GE_JOGADOR, AlterarGe_JogadorDto>();
+            #endregion
+
+            #region Dto para Domínio
+            CreateMap<Ge_JogadorDTO, GE_JOGADOR>();
+            CreateMap<BuscarTodosGe_JogadorDTO, GE_JOGADOR>();
+            CreateMap<AdicionarGe_JogadorDto, GE_JOGADOR>();
+            CreateMap<AlterarGe_JogadorDto, GE_JOGADOR>();
             #endregion
         }
     }

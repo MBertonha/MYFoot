@@ -16,12 +16,13 @@ namespace Modelo.Dominio.Entidades
         public int TipoPlano { get; private set; }
         public string Ativo { get; private set; }
         public DateTime DataInclusao { get; private set; }
+        public int QtdJogos { get; private set; }
 
         #endregion
 
         public GE_TIME() { }
 
-        public GE_TIME(int seqTime, string nomeTime, string cep, string uf, int tipoPlano, string ativo, DateTime dataInclusao)
+        public GE_TIME(int seqTime, string nomeTime, string cep, string uf, int tipoPlano, string ativo, DateTime dataInclusao, int qtdJogos)
         {
             SeqTime = seqTime;
             NomeTime = nomeTime;
@@ -30,6 +31,7 @@ namespace Modelo.Dominio.Entidades
             TipoPlano = tipoPlano;
             Ativo = ativo ?? "S";
             DataInclusao = dataInclusao;
+            QtdJogos = qtdJogos;
 
 
             //Incluir validações

@@ -10,6 +10,7 @@ namespace Modelo.Dominio.DTO
         public int SeqTime { get; set; }
         public string NomeTime { get; set; }
         public int TipoPlano { get; set; }
+        public int QtdJogos { get; set; }
         public string Ativo { get; set; }
     }
 }

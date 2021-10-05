@@ -16,6 +16,10 @@ namespace Modelo.Infra
             services.AddTransient<IGeLoginLeituraRepositorio, Ge_LoginLeituraRepositorio>();
             services.AddTransient<IGeTimeRepositorio, Ge_TimeRepositorio>();
             services.AddTransient<IGeTimeLeituraRepositorio, Ge_TimeLeituraRepositorio>();
+            services.AddTransient<IGeUsuarioRepositorio, Ge_UsuarioRepositorio>();
+            services.AddTransient<IGeUsuarioLeituraRepositorio, Ge_UsuarioLeituraRepositorio>();
+            services.AddTransient<IGeJogadorRepositorio, Ge_JogadorRepositorio>();
+            services.AddTransient<IGeJogadorLeituraRepositorio, Ge_JogadorLeituraRepositorio>();
 
             return services;
         }

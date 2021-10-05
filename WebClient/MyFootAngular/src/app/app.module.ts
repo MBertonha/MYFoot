@@ -12,13 +12,16 @@ import { RecuperacaoSenhaComponent } from './pages/recuperacao-senha/recuperacao
 import { HomeComponent } from './pages/home/home.component';
 import { HttpClientModule } from '@angular/common/http';
 import { LoginService } from './services/login-page/login.service';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AdminIndexComponent } from './pages/admin-index/admin-index.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginPageComponent,
     HomeComponent,
-    RecuperacaoSenhaComponent
+    RecuperacaoSenhaComponent,
+    AdminIndexComponent
   ],
   imports: [
     BrowserModule,
@@ -27,6 +30,7 @@ import { LoginService } from './services/login-page/login.service';
     PoModule,
     PoTemplatesModule,
     ReactiveFormsModule,
+    BrowserAnimationsModule,
     routing
   ],
   exports: [

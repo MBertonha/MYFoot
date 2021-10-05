@@ -41,6 +41,9 @@ namespace Modelo.Infra.Mapeamento
             builder.Property(e => e.DataInclusao)
                 .HasColumnName("dataInclusao");
 
+            builder.Property(e => e.QtdJogos)
+                .HasColumnName("dtdJogos");
+
             builder.Ignore(e => e.ResultadoValidacao);
 
             builder.Ignore(e => e.CascadeMode);

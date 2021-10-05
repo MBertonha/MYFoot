@@ -1,1 +1,7 @@
-<p>home works!</p>
+<po-page-default [p-title]="titulo" [p-breadcrumb]="breadcrumb">
+    <br>
+    <po-dynamic-view [p-fields]="camposGerais" [p-value]="dadosJogador"> </po-dynamic-view>
+    <po-dynamic-view [p-fields]="camposEstatisticas" [p-value]="dadosJogadorEstatisticas"> </po-dynamic-view>
+</po-page-default>
+
+

@@ -90,7 +90,6 @@ namespace Modelo.Servico.Servicos
 
                 var novomodelo = new AdicionarGE_TimeDTO()
                 {
-                    SeqTime = obj.SeqTime,
                     TipoPlano = obj.TipoPlano,
                     DataInclusao = obj.DataInclusao,
                     NomeTime = model.NomeTime.IsNullOrEmpty() ? obj.NomeTime : model.NomeTime,

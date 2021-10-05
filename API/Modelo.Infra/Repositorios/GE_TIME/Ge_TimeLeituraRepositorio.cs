@@ -49,6 +49,7 @@ namespace Modelo.Infra.Repositorios
                     EF.Functions.Like(e.NomeTime.ToUpper(), $"%{buscarTodos.NomeTime}%") ||
                     EF.Functions.Like(e.CEP.ToUpper(), $"%{buscarTodos.CEP}%") ||
                     EF.Functions.Like(e.UF.ToUpper(), $"%{buscarTodos.UF}%") ||
+                    EF.Functions.Like(e.QtdJogos.ToString(), $"%{buscarTodos.QtdJogos}%") ||
                     EF.Functions.Like(e.TipoPlano.ToString(), $"%{buscarTodos.TipoPlano}")) ||
                     EF.Functions.Like(e.DataInclusao.ToString(), $"%{buscarTodos.DataInclusao}")
                 );
@@ -78,6 +79,10 @@ namespace Modelo.Infra.Repositorios
                 if (!buscarTodos.UF.IsNullOrEmpty())
                 {
                     query = query.Where(e => EF.Functions.Like(e.UF.ToUpper(), $"%{buscarTodos.UF.ToUpper()}%"));
+                }
+                if (buscarTodos.QtdJogos > 0)
+                {
+                    query = query.Where(e => EF.Functions.Like(e.QtdJogos.ToString(), $"%{buscarTodos.QtdJogos}%"));
                 }
             }
 

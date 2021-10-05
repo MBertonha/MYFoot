@@ -17,6 +17,8 @@ namespace Modelo.Infra.Contexto
         #region DbSet
         public DbSet<GE_LOGIN> GE_LOGIN { get; set; }
         public DbSet<GE_TIME> GE_TIME { get; set; }
+        public DbSet<GE_USUARIO> GE_USUARIO { get; set; }
+        public DbSet<GE_JOGADOR> GE_JOGADOR { get; set; }
         #endregion
 
         public MyFootContexto(DbContextOptions<MyFootContexto> options, ITnfSession session) : base(options, session)
@@ -28,7 +30,8 @@ namespace Modelo.Infra.Contexto
         {
             modelBuilder.ApplyConfiguration(new GE_LOGIN_MAP());
             modelBuilder.ApplyConfiguration(new GE_TIME_MAP());
-
+            modelBuilder.ApplyConfiguration(new GE_USUARIO_MAP());
+            modelBuilder.ApplyConfiguration(new GE_JOGADOR_MAP());
 
             base.OnModelCreating(modelBuilder);
         }

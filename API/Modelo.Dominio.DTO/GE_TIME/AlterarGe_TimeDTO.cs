@@ -14,5 +14,6 @@ namespace Modelo.Dominio.DTO
         public int TipoPlano { get; set; }
         public string Ativo { get; set; }
         public DateTime DataInclusao { get; set; }
+        public int QtdJogos { get; set; }
     }
 }
