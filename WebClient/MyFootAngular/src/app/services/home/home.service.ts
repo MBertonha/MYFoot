@@ -23,6 +23,6 @@ export class HomeService {
   }
 
   buscarJogador(seqJogador){
-    return this.http.get<DtoResponse>(`${this.apiUrl}Jogador?SeqTime=${seqJogador}`);
+    return this.http.get<DtoResponse>(`${this.apiUrl}Jogador?SeqJogador=${seqJogador}`);
   }
 }

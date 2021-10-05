@@ -1,3 +1,4 @@
+import { DatePipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -40,6 +41,7 @@ export class HomeComponent implements OnInit {
     { property: 'ca',label: 'Cartões amarelos', gridColumns: 3 },
     { property: 'cv',label: 'Cartões vermelhos', gridColumns: 3 },
     { property: 'golsSofridos',label: 'Gols sofridos', gridColumns: 3 },
+    { property: 'DM', tag: true, color: 'color-11', icon: 'po-icon-ok' },
     { property: 'Mensalidade', tag: true, color: 'color-11', icon: 'po-icon-ok' },
   ];
 
@@ -50,7 +52,8 @@ export class HomeComponent implements OnInit {
     private formBuilder: FormBuilder,
     private poNotification: PoNotificationService,
     private router: Router,
-    private servicoGeral: GeralService) { }
+    private servicoGeral: GeralService,
+    private datePipe: DatePipe) { }
 
   ngOnInit(): void {
     this.homeService.buscarUsuario(this.servicoGeral.seqUsuario).subscribe(dados => {
@@ -63,23 +66,35 @@ export class HomeComponent implements OnInit {
       this.homeService.buscarJogador(this.servicoGeral.seqUsuario).subscribe(dadosJogador => {
         this.obterDadosGrid(dados, dadosJogador);
       });
-
-      
     });
   }
 
   obterDadosGrid(dados: any, dadosJgdr: any){
+
+    let diaAux = dados.items[0].dtaNascimento.toLocaleString().substr(8, 2);
+    let mesAux = dados.items[0].dtaNascimento.toLocaleString().substr(5, 2);
+    let anoAux = dados.items[0].dtaNascimento.toLocaleString().substr(0, 4);
+    let dataAux = diaAux + '/' + mesAux + '/' + anoAux;
+
     this.dadosJogador = {
       nome: dados.items[0].nomeUsuario,
       idade: '20',
       rg: dados.items[0].rg,
       email: dados.items[0].email,
       cpf: dados.items[0].cpf,
-      aniversario: dados.items[0].dtaNascimento
+      aniversario: dataAux
     };
+    
+    if(dados.items[0].dm == 'S'){
+      this.camposEstatisticas[7].color = 'color-07'
+    }
+    if(dados.items[0].inadimplente == 'S'){
+      this.camposEstatisticas[6].color = 'color-07'
+    }
+
 
     this.dadosJogadorEstatisticas = {
-      posicao: dados.items[0].nomeUsuario,
+      posicao: dados.items[0].posicaoPreferencial,
       jogosJogados: dadosJgdr.items[0].jogosJogados,
       gols: dadosJgdr.items[0].gols,
       ca: dadosJgdr.items[0].ca,
