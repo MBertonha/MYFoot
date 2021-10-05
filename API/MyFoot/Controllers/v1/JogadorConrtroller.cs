@@ -53,23 +53,23 @@ namespace Modelo.Aplicacao.Controllers.v1
             }
         }
 
-        //Altera um Jogador
-        [HttpPut]
-        //[Authorize("Bearer")]
-        [ProducesResponseType(typeof(Ge_JogadorDTO), 200)]
-        [ProducesResponseType(typeof(ErrorResponse), 400)]
-        public async Task<IActionResult> Atualizar([FromQuery] int seqJogador, [FromBody] Ge_JogadorDTO exemploDto)
-        {
+        ////Altera um Jogador
+        //[HttpPut]
+        ////[Authorize("Bearer")]
+        //[ProducesResponseType(typeof(Ge_JogadorDTO), 200)]
+        //[ProducesResponseType(typeof(ErrorResponse), 400)]
+        //public async Task<IActionResult> Atualizar([FromQuery] int seqJogador, [FromBody] Ge_JogadorDTO exemploDto)
+        //{
 
-            var exemplo = await _Servico.Atualizar(seqJogador, exemploDto);
-            if (exemplo == null)
-            {
-                return BadRequest("Erro ao alterar o Jogador");
-            }
-            else
-            {
-                return CreateResponseOnPut(exemplo);
-            }
-        }
+        //    var exemplo = await _Servico.Atualizar(seqJogador, exemploDto);
+        //    if (exemplo == null)
+        //    {
+        //        return BadRequest("Erro ao alterar o Jogador");
+        //    }
+        //    else
+        //    {
+        //        return CreateResponseOnPut(exemplo);
+        //    }
+        //}
     }
     }

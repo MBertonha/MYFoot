@@ -53,24 +53,24 @@ namespace Modelo.Aplicacao.Controllers.v1
             }
         }
 
-        //Altera um Usuario
-        [HttpPut]
-        //[Authorize("Bearer")]
-        [ProducesResponseType(typeof(Ge_UsuarioDTO), 200)]
-        [ProducesResponseType(typeof(ErrorResponse), 400)]
-        public async Task<IActionResult> Atualizar([FromQuery] int seqUsuario, [FromBody] Ge_UsuarioDTO exemploDto)
-        {
+        ////Altera um Usuario
+        //[HttpPut]
+        ////[Authorize("Bearer")]
+        //[ProducesResponseType(typeof(Ge_UsuarioDTO), 200)]
+        //[ProducesResponseType(typeof(ErrorResponse), 400)]
+        //public async Task<IActionResult> Atualizar([FromQuery] int seqUsuario, [FromBody] Ge_UsuarioDTO exemploDto)
+        //{
 
-            var exemplo = await _Servico.Atualizar(seqUsuario, exemploDto);
-            if (exemplo == null)
-            {
-                return BadRequest("Erro ao alterar o Usuario");
-            }
-            else
-            {
-                return CreateResponseOnPut(exemplo);
-            }
-        }
+        //    var exemplo = await _Servico.Atualizar(seqUsuario, exemploDto);
+        //    if (exemplo == null)
+        //    {
+        //        return BadRequest("Erro ao alterar o Usuario");
+        //    }
+        //    else
+        //    {
+        //        return CreateResponseOnPut(exemplo);
+        //    }
+        //}
 
     }
 }
